@@ -1,9 +1,8 @@
 ﻿<Application x:Class="Naorai.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Naorai"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:Naorai">
   <Application.Resources>
-
+    <ResourceDictionary Source="NotificationArea.xaml" />
   </Application.Resources>
 </Application>
