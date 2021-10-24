@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Naorai
+namespace Naorai.Models
 {
   public static class NativeMethods
   {

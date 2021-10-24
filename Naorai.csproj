@@ -54,7 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Models\NativeMethods.cs" />
     <Compile Include="NotificationArea.xaml.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -71,6 +71,7 @@
     <Page Include="NotificationArea.xaml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NotificationArea.xaml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
