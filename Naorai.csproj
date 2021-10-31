@@ -54,8 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\ActiveWindow.cs" />
     <Compile Include="Models\NativeMethods.cs" />
-    <Compile Include="NotificationArea.xaml.cs" />
+    <Compile Include="Models\Window.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
