@@ -8,10 +8,9 @@
                   MenuActivation="LeftOrRightClick">
     <tb:TaskbarIcon.ContextMenu>
       <ContextMenu>
-        <MenuItem Header="Restore windows"></MenuItem>
+        <MenuItem Header="Restore windows" Click="Restore_Click"></MenuItem>
         <Separator />
-        <MenuItem Header="Store all windows"></MenuItem>
-        <MenuItem Header="Store active window"></MenuItem>
+        <MenuItem Header="Store all windows" Click="StoreAll_Click"></MenuItem>
         <Separator />
         <MenuItem Header="_Edit windows" Click="Edit_Click"></MenuItem>
         <MenuItem Header="E_xit" Click="Exit_Click"></MenuItem>
