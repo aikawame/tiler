@@ -20,8 +20,8 @@ namespace Naorai
 
     private void Edit_Click(object sender, RoutedEventArgs e)
     {
-      System.Windows.Window mainWindow = new MainWindow();
-      mainWindow.Show();
+      System.Windows.Window editPage = new EditPage();
+      editPage.Show();
     }
     private void Exit_Click(object sender, RoutedEventArgs e)
     {
