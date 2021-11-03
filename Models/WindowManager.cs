@@ -72,6 +72,7 @@ namespace Naorai.Models
 
       Process process = GetProcess(hWnd);
       if (IgnoredProcessNames.Contains(process.ProcessName)) return true;
+      if (process.ProcessName == "explorer" && title == "Program Manager") return true;
 
       Rect rect = GetRect(hWnd);
 
