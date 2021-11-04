@@ -60,7 +60,7 @@ namespace Naorai.Models
       rect.Width = win32Rect.right - win32Rect.left;
       rect.Height = win32Rect.bottom - win32Rect.top;
       rect.X = win32Rect.left;
-      rect.Y = win32Rect.bottom;
+      rect.Y = win32Rect.top;
 
       return rect;
     }
