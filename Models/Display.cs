@@ -23,6 +23,8 @@ namespace Naorai.Models
 
     public void Load()
     {
+      if (File.Exists(GetSettingFileName()) == false) Save();
+
       WindowManager windowManager = new WindowManager();
       ObservableCollection<ActiveWindow> activeWindows = windowManager.GetActiveWindows();
 
