@@ -12,8 +12,6 @@ namespace Naorai.Models
 {
   public class Display
   {
-    public ObservableCollection<Window> Windows = new ObservableCollection<Window>();
-
     private string GetSettingFileName()
     {
       string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -45,7 +43,7 @@ namespace Naorai.Models
           NativeMethods.MoveWindow(
             activeWindow.Handler,
             (int)window.Rect.X,
-            (int)window.Rect.Y - (int)window.Rect.Height,
+            (int)window.Rect.Y,
             (int)window.Rect.Width,
             (int)window.Rect.Height,
             false
@@ -64,6 +62,5 @@ namespace Naorai.Models
       serializer.Serialize(streamWriter, windows);
       streamWriter.Close();
     }
-
   }
 }
