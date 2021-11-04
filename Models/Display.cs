@@ -4,9 +4,10 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Windows;
-using System.Xml.Serialization;
+using System.Xml;
 
 namespace Naorai.Models
 {
@@ -18,7 +19,7 @@ namespace Naorai.Models
       double width = SystemParameters.VirtualScreenWidth;
       double height = SystemParameters.VirtualScreenHeight;
 
-      return $"{appDataPath}/Naorai/Settings_{width}x{height}.xml";
+      return $"{appDataPath}/Naorai/Settings_{width}x{height}.json";
     }
 
     public void Load()
@@ -26,30 +27,32 @@ namespace Naorai.Models
       if (File.Exists(GetSettingFileName()) == false) Save();
 
       WindowManager windowManager = new WindowManager();
-      ObservableCollection<ActiveWindow> activeWindows = windowManager.GetActiveWindows();
+      ObservableCollection<Window> activeWindows = windowManager.GetWindows();
 
-      XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Window>));
-      StreamReader streamReader = new StreamReader(GetSettingFileName(), new UTF8Encoding(false));
-      ObservableCollection<Window> windows = (ObservableCollection<Window>)serializer.Deserialize(streamReader);
-      streamReader.Close();
-
-      foreach (ActiveWindow activeWindow in activeWindows)
+      using (FileStream fs = new FileStream(GetSettingFileName(), FileMode.Open))
+      using (var reader = JsonReaderWriterFactory.CreateJsonReader(fs, XmlDictionaryReaderQuotas.Max))
       {
-        IEnumerable<Window> windowsWhere = windows.Where(o =>
+        DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(ObservableCollection<Window>));
+        ObservableCollection<Window> windows = (ObservableCollection<Window>)serializer.ReadObject(reader);
+
+        foreach (Window activeWindow in activeWindows)
         {
-          return o.ProcessName == activeWindow.ProcessName && o.Title == activeWindow.Title;
-        });
-        foreach (Window window in windowsWhere)
-        {
-          Debug.Print(window.Title);
-          NativeMethods.MoveWindow(
-            activeWindow.Handler,
-            (int)window.Rect.X,
-            (int)window.Rect.Y,
-            (int)window.Rect.Width,
-            (int)window.Rect.Height,
-            false
-          );
+          IEnumerable<Window> windowsWhere = windows.Where(o =>
+          {
+            return o.ProcessName == activeWindow.ProcessName && o.Title == activeWindow.Title;
+          });
+          foreach (Window window in windowsWhere)
+          {
+            Debug.Print(window.Title);
+            NativeMethods.MoveWindow(
+              activeWindow.Handler,
+              (int)window.Rect.X,
+              (int)window.Rect.Y,
+              (int)window.Rect.Width,
+              (int)window.Rect.Height,
+              false
+            );
+          }
         }
       }
     }
@@ -59,10 +62,12 @@ namespace Naorai.Models
       WindowManager windowManager = new WindowManager();
       ObservableCollection<Window> windows = windowManager.GetWindows();
 
-      XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Window>));
-      StreamWriter streamWriter = new StreamWriter(GetSettingFileName(), false, new UTF8Encoding(false));
-      serializer.Serialize(streamWriter, windows);
-      streamWriter.Close();
+      using (FileStream fs = new FileStream(GetSettingFileName(), FileMode.Create))
+      using (var writer = JsonReaderWriterFactory.CreateJsonWriter(fs, Encoding.UTF8, true, true, "  "))
+      {
+        DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(ObservableCollection<Window>));
+        serializer.WriteObject(writer, windows);
+      }
     }
   }
 }

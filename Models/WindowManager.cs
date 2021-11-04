@@ -9,25 +9,16 @@ namespace Naorai.Models
 {
   public class WindowManager
   {
-    private ObservableCollection<ActiveWindow> CurrentWindows = new ObservableCollection<ActiveWindow>();
-
-    private ObservableCollection<Window> Windows = new ObservableCollection<Window>();
-
     private static readonly string[] IgnoredProcessNames = { "Naorai", "ApplicationFrameHost", "SystemSettings" };
 
-    public WindowManager()
-    {
-      NativeMethods.EnumWindows(EnumWindowProcess, IntPtr.Zero);
-    }
-
-    public ObservableCollection<ActiveWindow> GetActiveWindows()
-    {
-      return CurrentWindows;
-    }
+    private ObservableCollection<Window> _windows;
 
     public ObservableCollection<Window> GetWindows()
     {
-      return Windows;
+      _windows = new ObservableCollection<Window>();
+      NativeMethods.EnumWindows(EnumWindowProcess, IntPtr.Zero);
+
+      return _windows;
     }
 
     private static string GetTitle(IntPtr hWnd)
@@ -76,18 +67,12 @@ namespace Naorai.Models
 
       Rect rect = GetRect(hWnd);
 
-      ActiveWindow activeWindow = new ActiveWindow();
-      activeWindow.ProcessName = process.ProcessName;
-      activeWindow.Title = title;
-      activeWindow.Rect = rect;
-      activeWindow.Handler = hWnd;
-      CurrentWindows.Add(activeWindow);
-
       Window window = new Window();
       window.ProcessName = process.ProcessName;
       window.Title = title;
       window.Rect = rect;
-      Windows.Add(window);
+      window.Handler = hWnd;
+      _windows.Add(window);
 
       return true;
     }
