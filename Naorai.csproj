@@ -55,7 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\Display.cs" />
+    <Compile Include="Models\Screen.cs" />
+    <Compile Include="Models\SettingCollection.cs" />
     <Compile Include="Models\NativeMethods.cs" />
     <Compile Include="Models\Window.cs" />
     <Page Include="EditPage.xaml">
@@ -73,7 +74,7 @@
     <Page Include="NotificationArea.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\WindowManager.cs" />
+    <Compile Include="Models\WindowEnumerator.cs" />
     <Compile Include="NotificationArea.xaml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
