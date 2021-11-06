@@ -11,6 +11,7 @@
         <MenuItem Header="Restore windows" Click="Restore_Click"></MenuItem>
         <Separator />
         <MenuItem Header="Store all windows" Click="StoreAll_Click"></MenuItem>
+        <MenuItem Header="Store active window" Click="StoreActive_Click"></MenuItem>
         <Separator />
         <MenuItem Header="_Edit windows" Click="Edit_Click"></MenuItem>
         <MenuItem Header="E_xit" Click="Exit_Click"></MenuItem>

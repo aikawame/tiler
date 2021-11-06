@@ -13,6 +13,9 @@ namespace Naorai.Models
     public static extern bool EnumWindows(EnumWindowsDelegate lpEnumFunc, IntPtr lParam);
 
     [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+    public static extern IntPtr GetActiveWindow();
+
+    [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
     public static extern bool GetWindowRect(IntPtr hWnd, out Rect lpRect);
 
