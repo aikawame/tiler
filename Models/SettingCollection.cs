@@ -51,6 +51,11 @@ namespace Naorai.Models
 
     public void Save()
     {
+      var directory = Path.GetDirectoryName(GetFileName());
+      if (Directory.Exists(directory) == false)
+      {
+        Directory.CreateDirectory(directory);
+      }
       using (var fs = new FileStream(GetFileName(), FileMode.Create))
       using (var writer = JsonReaderWriterFactory.CreateJsonWriter(fs, Encoding.UTF8, true, true, "  "))
       {
