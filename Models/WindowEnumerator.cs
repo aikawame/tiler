@@ -25,7 +25,7 @@ namespace Naorai.Models
       _windows = new List<Window>();
       NativeMethods.EnumWindows(EnumWindow, IntPtr.Zero);
 
-      return _windows.OrderBy(window => window.ProcessName).ToList();
+      return _windows.OrderBy(window => window.ProcessName.Value).ToList();
     }
 
     private static bool EnumWindow(IntPtr hWnd, IntPtr lParam)
@@ -40,9 +40,12 @@ namespace Naorai.Models
       Rect rect = _GetRect(hWnd);
 
       var window = new Window();
-      window.ProcessName = process.ProcessName;
-      window.Title = title;
-      window.Rect = rect;
+      window.ProcessName.Value = process.ProcessName;
+      window.Title.Value = title;
+      window.X.Value = (int)rect.X;
+      window.Y.Value = (int)rect.Y;
+      window.Width.Value = (int)rect.Width;
+      window.Height.Value = (int)rect.Height;
       window.Handler = hWnd;
       _windows.Add(window);
 
