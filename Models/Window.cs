@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Windows;
+using Reactive.Bindings;
 
 namespace Naorai.Models
 {
@@ -10,21 +10,33 @@ namespace Naorai.Models
   public class Window
   {
     [DataMember]
-    public string ProcessName { get; set; }
+    public ReactiveProperty<string> ProcessName { get; set; }
 
     [DataMember]
-    public string Title { get; set; }
+    public ReactiveProperty<string> Title { get; set; }
 
     [DataMember]
-    public Rect Rect { get; set; }
+    public ReactiveProperty<int> X { get; set; }
+
+    [DataMember]
+    public ReactiveProperty<int> Y { get; set; }
+
+    [DataMember]
+    public ReactiveProperty<int> Width { get; set;  }
+
+    [DataMember]
+    public ReactiveProperty<int> Height { get; set; }
 
     public IntPtr Handler { get; set; }
 
     public Window()
     {
-      ProcessName = "";
-      Title = "";
-      Rect = new Rect();
+      ProcessName = new ReactiveProperty<string>();
+      Title = new ReactiveProperty<string>();
+      X = new ReactiveProperty<int>();
+      Y = new ReactiveProperty<int>();
+      Width = new ReactiveProperty<int>();
+      Height = new ReactiveProperty<int>();
     }
 
     public static Window Active()
@@ -42,7 +54,10 @@ namespace Naorai.Models
       var targetWindows = new List<Window>();
       if (Handler == IntPtr.Zero)
       {
-        targetWindows = All().Where(w => w.ProcessName == ProcessName && w.Title == Title).ToList();
+        targetWindows = All().Where(w =>
+        {
+          return w.ProcessName.Value == ProcessName.Value && w.Title.Value == Title.Value;
+        }).ToList();
       }
       else
       {
@@ -51,7 +66,7 @@ namespace Naorai.Models
 
       targetWindows.ForEach(w =>
       {
-        NativeMethods.MoveWindow(w.Handler, (int)Rect.X, (int)Rect.Y, (int)Rect.Width, (int)Rect.Height, false);
+        NativeMethods.MoveWindow(w.Handler, X.Value, Y.Value, Width.Value, Height.Value, false);
       });
     }
   }
