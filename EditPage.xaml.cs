@@ -32,7 +32,7 @@ namespace Naorai
     {
       e.Cancel = true;
       ShowInTaskbar = false;
-      WindowState = WindowState.Minimized;
+      Hide();
     }
   }
 }
