@@ -18,7 +18,7 @@ namespace Naorai
       settingCollection.UpdateScreen(Screen.Active());
       settingCollection.Save();
 
-      MessageBox.Show("All window positions have been saved.");
+      ModernWpf.MessageBox.Show("All window positions have been saved.");
     }
 
     private void StoreActive_Click(object sender, RoutedEventArgs e)
@@ -27,7 +27,7 @@ namespace Naorai
       settingCollection.GetCurrentScreen().UpdateWindow(Window.Active());
       settingCollection.Save();
 
-      MessageBox.Show("Active window position has been saved.");
+      ModernWpf.MessageBox.Show("Active window position has been saved.");
     }
 
     private void Edit_Click(object sender, RoutedEventArgs e)

@@ -25,7 +25,7 @@ namespace Naorai
       settingCollection.GetCurrentScreen().Windows = Windows.ToList();
       settingCollection.Save();
 
-      MessageBox.Show("Settings have been saved.");
+      ModernWpf.MessageBox.Show("Settings have been saved.");
     }
 
     private void Window_Closing(object sender, CancelEventArgs e)
