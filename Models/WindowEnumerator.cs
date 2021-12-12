@@ -9,7 +9,13 @@ namespace Naorai.Models
 {
   public class WindowEnumerator
   {
-    private static readonly string[] IgnoredProcessNames = { "Naorai", "ApplicationFrameHost", "SystemSettings" };
+    private static readonly string[] IgnoredProcessNames =
+    {
+      "Naorai",
+      "ApplicationFrameHost",
+      "SystemSettings",
+      "TextInputHost"
+    };
 
     private static List<Window> _windows;
 
