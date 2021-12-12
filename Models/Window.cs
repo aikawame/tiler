@@ -56,7 +56,7 @@ namespace Naorai.Models
       {
         targetWindows = All().Where(w =>
         {
-          return w.ProcessName.Value == ProcessName.Value && w.Title.Value == Title.Value;
+          return w.ProcessName.Value == ProcessName.Value && w.Title.Value.Contains(Title.Value);
         }).ToList();
       }
       else
