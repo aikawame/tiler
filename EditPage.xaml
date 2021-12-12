@@ -3,22 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        ui:WindowHelper.UseModernWindowStyle="True"
         mc:Ignorable="d"
         Closing="Window_Closing"
         ResizeMode="NoResize"
-        Title="Edit windows" Height="600" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Edit windows" Height="720" Width="960" WindowStartupLocation="CenterScreen">
   <Grid>
     <Grid.RowDefinitions>
-      <RowDefinition Height="10"/>
+      <RowDefinition Height="20"/>
       <RowDefinition Height="*"/>
-      <RowDefinition Height="10"/>
-      <RowDefinition Height="24"/>
-      <RowDefinition Height="10"/>
+      <RowDefinition Height="20"/>
+      <RowDefinition Height="32"/>
+      <RowDefinition Height="20"/>
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="10"/>
+      <ColumnDefinition Width="20"/>
       <ColumnDefinition Width="*"/>
-      <ColumnDefinition Width="10"/>
+      <ColumnDefinition Width="20"/>
     </Grid.ColumnDefinitions>
     <ListView Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Windows}">
       <ListView.ItemContainerStyle>
@@ -28,7 +30,7 @@
       </ListView.ItemContainerStyle>
       <ListView.View>
         <GridView>
-          <GridViewColumn Header="Process name" DisplayMemberBinding="{Binding ProcessName.Value}" Width="150"/>
+          <GridViewColumn Header="Process name" DisplayMemberBinding="{Binding ProcessName.Value}" Width="200"/>
           <GridViewColumn Header="Title" Width="400">
             <GridViewColumn.CellTemplate>
               <DataTemplate>
@@ -36,28 +38,28 @@
               </DataTemplate>
             </GridViewColumn.CellTemplate>
           </GridViewColumn>
-          <GridViewColumn Header="Width" Width="50">
+          <GridViewColumn Header="Width" Width="78">
             <GridViewColumn.CellTemplate>
               <DataTemplate>
                 <TextBox Text="{Binding Width.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
               </DataTemplate>
             </GridViewColumn.CellTemplate>
           </GridViewColumn>
-          <GridViewColumn Header="Height" Width="50">
+          <GridViewColumn Header="Height" Width="78">
             <GridViewColumn.CellTemplate>
               <DataTemplate>
                 <TextBox Text="{Binding Height.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
               </DataTemplate>
             </GridViewColumn.CellTemplate>
           </GridViewColumn>
-          <GridViewColumn Header="X" Width="50">
+          <GridViewColumn Header="X" Width="78">
             <GridViewColumn.CellTemplate>
               <DataTemplate>
                 <TextBox Text="{Binding X.Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
               </DataTemplate>
             </GridViewColumn.CellTemplate>
           </GridViewColumn>
-          <GridViewColumn Header="Y" Width="50">
+          <GridViewColumn Header="Y" Width="78">
             <GridViewColumn.CellTemplate>
               <DataTemplate>
                 <TextBox Text="{Binding Y.Value}"/>
