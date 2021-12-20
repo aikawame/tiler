@@ -53,7 +53,7 @@ namespace Naorai.Models
 
     public void Save()
     {
-      var directory = Path.GetDirectoryName(GetFileName());
+      var directory = Path.GetDirectoryName(GetFileName()) ?? "";
       if (Directory.Exists(directory) == false)
       {
         Directory.CreateDirectory(directory);
