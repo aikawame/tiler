@@ -46,7 +46,9 @@ namespace Naorai.Models
       var screenWidth = (int)SystemParameters.VirtualScreenWidth;
       var screenHeight = (int)SystemParameters.VirtualScreenHeight;
 
-      return Screens.Where(screen => screen.Width == screenWidth && screen.Height == screenHeight).First();
+      var screens = Screens.Where(screen => screen.Width == screenWidth && screen.Height == screenHeight).ToList();
+
+      return screens.Any() ? screens.First() : Screen.Active();
     }
 
     public void Save()
