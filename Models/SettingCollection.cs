@@ -48,7 +48,14 @@ namespace Naorai.Models
 
       var screens = Screens.Where(screen => screen.Width == screenWidth && screen.Height == screenHeight).ToList();
 
-      return screens.Any() ? screens.First() : Screen.Active();
+      if (screens.Any() == false)
+      {
+        var currentScreen = Screen.Active();
+        Screens.Add(currentScreen);
+
+        return currentScreen;
+      }
+      return screens.First();
     }
 
     public void Save()
