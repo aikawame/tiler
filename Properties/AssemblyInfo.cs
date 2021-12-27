@@ -53,3 +53,6 @@ using System.Windows;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+// Supports Windows 10 19H1 and above
+[assembly: System.Runtime.Versioning.SupportedOSPlatform("windows10.0.18362")]
