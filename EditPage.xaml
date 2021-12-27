@@ -22,7 +22,8 @@
   <ColumnDefinition Width="*"/>
   <ColumnDefinition Width="20"/>
   </Grid.ColumnDefinitions>
-    <DataGrid Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Windows}" AutoGenerateColumns="False">
+    <DataGrid Grid.Row="1" Grid.Column="1"
+              ItemsSource="{Binding Windows}" AutoGenerateColumns="False" CanUserAddRows="False">
       <DataGrid.Columns>
         <DataGridTextColumn Header="Process name"
                             Binding="{Binding ProcessName.Value}"
