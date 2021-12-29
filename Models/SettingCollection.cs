@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows;
 using System.Xml;
 
-namespace Naorai.Models
+namespace Tiler.Models
 {
   public class SettingCollection
   {
@@ -15,7 +15,7 @@ namespace Naorai.Models
 
     private static string GetFileName()
     {
-      return $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}/Naorai/settings.json";
+      return $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}/Tiler/settings.json";
     }
 
     public static SettingCollection Load()

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using Reactive.Bindings;
 
-namespace Naorai.Models
+namespace Tiler.Models
 {
   [DataContract]
   public class Window

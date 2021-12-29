@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 
-namespace Naorai.Models
+namespace Tiler.Models
 {
   public class WindowEnumerator
   {
     private static readonly string[] IgnoredProcessNames =
     {
-      "Naorai",
+      "Tiler",
       "ApplicationFrameHost",
       "SystemSettings",
       "TextInputHost"
