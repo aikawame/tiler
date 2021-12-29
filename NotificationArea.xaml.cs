@@ -1,8 +1,8 @@
 ﻿using System.Windows;
-using Naorai.Models;
-using Window = Naorai.Models.Window;
+using Tiler.Models;
+using Window = Tiler.Models.Window;
 
-namespace Naorai
+namespace Tiler
 {
   public partial class NotificationArea
   {

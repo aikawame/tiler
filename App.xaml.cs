@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using Hardcodet.Wpf.TaskbarNotification;
 
-namespace Naorai
+namespace Tiler
 {
   public partial class App
   {

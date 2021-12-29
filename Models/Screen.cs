@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System.Windows;
 
-namespace Naorai.Models
+namespace Tiler.Models
 {
   [DataContract]
   public class Screen
