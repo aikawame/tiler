@@ -13,7 +13,14 @@ namespace Tiler.Models
     public ReactiveProperty<string> ProcessName { get; set; }
 
     [DataMember]
-    public ReactiveProperty<string> Title { get; set; }
+    public ReactiveProperty<string> Title
+    {
+      get { return _title; }
+      set
+      {
+        _title = value.Value is null ? new ReactiveProperty<string>("") : value;
+      }
+    }
 
     [DataMember]
     public ReactiveProperty<int> X { get; set; }
@@ -29,6 +36,8 @@ namespace Tiler.Models
 
     public IntPtr Handler { get; set; }
 
+    private ReactiveProperty<string> _title;
+
     public Window()
     {
       ProcessName = new ReactiveProperty<string>();
@@ -37,6 +46,7 @@ namespace Tiler.Models
       Y = new ReactiveProperty<int>();
       Width = new ReactiveProperty<int>();
       Height = new ReactiveProperty<int>();
+      _title = new ReactiveProperty<string>();
     }
 
     public static Window Active()
