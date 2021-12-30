@@ -19,6 +19,11 @@ namespace Tiler.Models
 
     private static List<Window> _windows;
 
+    static WindowEnumerator()
+    {
+      _windows = new List<Window>();
+    }
+
     public static Window GetActiveWindow()
     {
       EnumWindow(NativeMethods.GetActiveWindow(), IntPtr.Zero);
