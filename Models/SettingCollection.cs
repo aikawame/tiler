@@ -13,6 +13,11 @@ namespace Tiler.Models
   {
     public List<Screen> Screens;
 
+    public SettingCollection()
+    {
+      Screens = new List<Screen>();
+    }
+
     private static string GetFileName()
     {
       return $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}/Tiler/settings.json";
@@ -26,8 +31,10 @@ namespace Tiler.Models
       using (var reader = JsonReaderWriterFactory.CreateJsonReader(fs, XmlDictionaryReaderQuotas.Max))
       {
         var serializer = new DataContractJsonSerializer(typeof(SettingCollection));
+        var settingCollection = serializer.ReadObject(reader);
+        if (settingCollection is null) return LoadDefault();
 
-        return (SettingCollection)serializer.ReadObject(reader);
+        return (SettingCollection)settingCollection;
       }
     }
 
