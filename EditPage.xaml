@@ -10,18 +10,18 @@
         ResizeMode="NoResize"
         Title="Edit windows" Width="960" Height="720" WindowStartupLocation="CenterScreen">
   <Grid>
-  <Grid.RowDefinitions>
-  <RowDefinition Height="20"/>
-  <RowDefinition Height="*"/>
-  <RowDefinition Height="20"/>
-  <RowDefinition Height="32"/>
-  <RowDefinition Height="20"/>
-  </Grid.RowDefinitions>
-  <Grid.ColumnDefinitions>
-  <ColumnDefinition Width="20"/>
-  <ColumnDefinition Width="*"/>
-  <ColumnDefinition Width="20"/>
-  </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="20"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="20"/>
+      <RowDefinition Height="32"/>
+      <RowDefinition Height="20"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="20"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="20"/>
+    </Grid.ColumnDefinitions>
     <DataGrid Grid.Row="1" Grid.Column="1"
               ItemsSource="{Binding Windows}" AutoGenerateColumns="False" CanUserAddRows="False">
       <DataGrid.Columns>
@@ -30,10 +30,42 @@
                             Width="150"
                             IsReadOnly="True" />
         <DataGridTextColumn Header="Title" Binding="{Binding Title.Value}" Width="400" />
-        <DataGridTextColumn Header="X" Binding="{Binding X.Value}" Width="80" />
-        <DataGridTextColumn Header="Y" Binding="{Binding Y.Value}" Width="80" />
-        <DataGridTextColumn Header="Width" Binding="{Binding Width.Value}" Width="80" />
-        <DataGridTextColumn Header="Height" Binding="{Binding Height.Value}" Width="80" />
+        <DataGridTextColumn Header="X" Binding="{Binding X.Value}" Width="80">
+          <DataGridTextColumn.ElementStyle>
+            <Style TargetType="TextBlock">
+              <Setter Property="HorizontalAlignment" Value="Right" />
+              <Setter Property="VerticalAlignment" Value="Center" />
+              <Setter Property="Padding" Value="0,0,12,0"></Setter>
+            </Style>
+          </DataGridTextColumn.ElementStyle>
+        </DataGridTextColumn>
+        <DataGridTextColumn Header="Y" Binding="{Binding Y.Value}" Width="80">
+          <DataGridTextColumn.ElementStyle>
+            <Style TargetType="TextBlock">
+              <Setter Property="HorizontalAlignment" Value="Right" />
+              <Setter Property="VerticalAlignment" Value="Center" />
+              <Setter Property="Padding" Value="0,0,12,0"></Setter>
+            </Style>
+          </DataGridTextColumn.ElementStyle>
+        </DataGridTextColumn>
+        <DataGridTextColumn Header="Width" Binding="{Binding Width.Value}" Width="80">
+          <DataGridTextColumn.ElementStyle>
+            <Style TargetType="TextBlock">
+              <Setter Property="HorizontalAlignment" Value="Right" />
+              <Setter Property="VerticalAlignment" Value="Center" />
+              <Setter Property="Padding" Value="0,0,12,0"></Setter>
+            </Style>
+          </DataGridTextColumn.ElementStyle>
+        </DataGridTextColumn>
+        <DataGridTextColumn Header="Height" Binding="{Binding Height.Value}" Width="80">
+          <DataGridTextColumn.ElementStyle>
+            <Style TargetType="TextBlock">
+              <Setter Property="HorizontalAlignment" Value="Right" />
+              <Setter Property="VerticalAlignment" Value="Center" />
+              <Setter Property="Padding" Value="0,0,12,0"></Setter>
+            </Style>
+          </DataGridTextColumn.ElementStyle>
+        </DataGridTextColumn>
       </DataGrid.Columns>
     </DataGrid>
     <Button Grid.Row="3" Grid.Column="1" Content="Save" Width="100" HorizontalAlignment="Right" Click="Save_Click"/>
