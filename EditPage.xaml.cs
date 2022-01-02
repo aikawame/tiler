@@ -25,7 +25,7 @@ namespace Tiler
       settingCollection.GetCurrentScreen().Windows = Windows.ToList();
       settingCollection.Save();
 
-      ModernWpf.MessageBox.Show("Settings have been saved.");
+      ModernWpf.MessageBox.Show(Properties.Resources.Msg_SettingsSaved);
     }
 
     private void Window_Closing(object sender, CancelEventArgs e)

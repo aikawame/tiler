@@ -22,7 +22,7 @@ namespace Tiler.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Tiler.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Tiler.Properties.Resources", typeof(Resources).Assembly);
@@ -51,12 +51,111 @@ namespace Tiler.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advanced settings.
+        /// </summary>
+        public static string Frg_AdvancedSettings {
+            get {
+                return ResourceManager.GetString("Frg_AdvancedSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        public static string Frg_Exit {
+            get {
+                return ResourceManager.GetString("Frg_Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Height.
+        /// </summary>
+        public static string Frg_Height {
+            get {
+                return ResourceManager.GetString("Frg_Height", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Process name.
+        /// </summary>
+        public static string Frg_ProcessName {
+            get {
+                return ResourceManager.GetString("Frg_ProcessName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore windows.
+        /// </summary>
+        public static string Frg_RestoreWindows {
+            get {
+                return ResourceManager.GetString("Frg_RestoreWindows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Frg_Save {
+            get {
+                return ResourceManager.GetString("Frg_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Store active window.
+        /// </summary>
+        public static string Frg_StoreActiveWindow {
+            get {
+                return ResourceManager.GetString("Frg_StoreActiveWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Store all windows.
+        /// </summary>
+        public static string Frg_StoreAllWindows {
+            get {
+                return ResourceManager.GetString("Frg_StoreAllWindows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string Frg_Title {
+            get {
+                return ResourceManager.GetString("Frg_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Width.
+        /// </summary>
+        public static string Frg_Width {
+            get {
+                return ResourceManager.GetString("Frg_Width", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings have been saved..
+        /// </summary>
+        public static string Msg_SettingsSaved {
+            get {
+                return ResourceManager.GetString("Msg_SettingsSaved", resourceCulture);
             }
         }
     }
