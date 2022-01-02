@@ -18,7 +18,7 @@ namespace Tiler
       settingCollection.UpdateScreen(Screen.Active());
       settingCollection.Save();
 
-      ModernWpf.MessageBox.Show("All window positions have been saved.");
+      ModernWpf.MessageBox.Show(Properties.Resources.Msg_AllWindowsSaved);
     }
 
     private void StoreActive_Click(object sender, RoutedEventArgs e)
@@ -27,7 +27,7 @@ namespace Tiler
       settingCollection.GetCurrentScreen().UpdateWindow(Window.Active());
       settingCollection.Save();
 
-      ModernWpf.MessageBox.Show("Active window position has been saved.");
+      ModernWpf.MessageBox.Show(Properties.Resources.Msg_ActiveWindowSaved);
     }
 
     private void Edit_Click(object sender, RoutedEventArgs e)
