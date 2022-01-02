@@ -4,11 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="http://schemas.modernwpf.com/2019"
+        xmlns:properties="clr-namespace:Tiler.Properties"
         ui:WindowHelper.UseModernWindowStyle="True"
         mc:Ignorable="d"
         Closing="Window_Closing"
         ResizeMode="NoResize"
-        Title="Edit windows" Width="960" Height="720" WindowStartupLocation="CenterScreen">
+        Title="Tiler" Width="960" Height="720" WindowStartupLocation="CenterScreen">
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="20"/>
@@ -25,11 +26,11 @@
     <DataGrid Grid.Row="1" Grid.Column="1"
               ItemsSource="{Binding Windows}" AutoGenerateColumns="False" CanUserAddRows="False">
       <DataGrid.Columns>
-        <DataGridTextColumn Header="Process name"
+        <DataGridTextColumn Header="{x:Static properties:Resources.Frg_ProcessName}"
                             Binding="{Binding ProcessName.Value}"
                             Width="150"
                             IsReadOnly="True" />
-        <DataGridTextColumn Header="Title" Binding="{Binding Title.Value}" Width="400" />
+        <DataGridTextColumn Header="{x:Static properties:Resources.Frg_Title}" Binding="{Binding Title.Value}" Width="400" />
         <DataGridTextColumn Header="X" Binding="{Binding X.Value}" Width="80">
           <DataGridTextColumn.ElementStyle>
             <Style TargetType="TextBlock">
@@ -48,7 +49,7 @@
             </Style>
           </DataGridTextColumn.ElementStyle>
         </DataGridTextColumn>
-        <DataGridTextColumn Header="Width" Binding="{Binding Width.Value}" Width="80">
+        <DataGridTextColumn Header="{x:Static properties:Resources.Frg_Width}" Binding="{Binding Width.Value}" Width="80">
           <DataGridTextColumn.ElementStyle>
             <Style TargetType="TextBlock">
               <Setter Property="HorizontalAlignment" Value="Right" />
@@ -57,7 +58,7 @@
             </Style>
           </DataGridTextColumn.ElementStyle>
         </DataGridTextColumn>
-        <DataGridTextColumn Header="Height" Binding="{Binding Height.Value}" Width="80">
+        <DataGridTextColumn Header="{x:Static properties:Resources.Frg_Height}" Binding="{Binding Height.Value}" Width="80">
           <DataGridTextColumn.ElementStyle>
             <Style TargetType="TextBlock">
               <Setter Property="HorizontalAlignment" Value="Right" />
@@ -68,6 +69,6 @@
         </DataGridTextColumn>
       </DataGrid.Columns>
     </DataGrid>
-    <Button Grid.Row="3" Grid.Column="1" Content="Save" Width="100" HorizontalAlignment="Right" Click="Save_Click"/>
+    <Button Grid.Row="3" Grid.Column="1" Content="{x:Static properties:Resources.Frg_Save}" Width="100" HorizontalAlignment="Right" Click="Save_Click"/>
   </Grid>
 </Window>
