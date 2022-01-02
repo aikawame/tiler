@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using JetBrains.Annotations;
 using Tiler.Models;
 using Window = Tiler.Models.Window;
 
@@ -9,7 +10,8 @@ namespace Tiler.Views;
 
 public partial class EditPage
 {
-  public ObservableCollection<Window> Windows { get; set; }
+  [UsedImplicitly]
+  public ObservableCollection<Window> Windows { get; }
 
   public EditPage()
   {
