@@ -18,17 +18,19 @@ public class Screen
 
   public Screen()
   {
-    Width = 0;
-    Height = 0;
+    Width   = 0;
+    Height  = 0;
     Windows = new List<Window>();
   }
 
   public static Screen Active()
   {
-    var screen = new Screen();
-    screen.Width = (int)SystemParameters.VirtualScreenWidth;
-    screen.Height = (int)SystemParameters.VirtualScreenHeight;
-    screen.Windows = Window.All();
+    var screen = new Screen
+    {
+      Width   = (int)SystemParameters.VirtualScreenWidth,
+      Height  = (int)SystemParameters.VirtualScreenHeight,
+      Windows = Window.All()
+    };
 
     return screen;
   }

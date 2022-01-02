@@ -15,11 +15,8 @@ public class Window
   [DataMember]
   public ReactiveProperty<string> Title
   {
-    get { return _title; }
-    set
-    {
-      _title = value.Value is null ? new ReactiveProperty<string>("") : value;
-    }
+    get => _title;
+    set => _title = value.Value is null ? new ReactiveProperty<string>("") : value;
   }
 
   [DataMember]
@@ -34,19 +31,19 @@ public class Window
   [DataMember]
   public ReactiveProperty<int> Height { get; set; }
 
-  public IntPtr Handler { get; set; }
+  public IntPtr Handler { get; init; }
 
   private ReactiveProperty<string> _title;
 
   public Window()
   {
     ProcessName = new ReactiveProperty<string>();
-    Title = new ReactiveProperty<string>();
-    X = new ReactiveProperty<int>();
-    Y = new ReactiveProperty<int>();
-    Width = new ReactiveProperty<int>();
-    Height = new ReactiveProperty<int>();
-    _title = new ReactiveProperty<string>();
+    Title       = new ReactiveProperty<string>();
+    X           = new ReactiveProperty<int>();
+    Y           = new ReactiveProperty<int>();
+    Width       = new ReactiveProperty<int>();
+    Height      = new ReactiveProperty<int>();
+    _title      = new ReactiveProperty<string>();
   }
 
   public static Window Active()
@@ -64,10 +61,7 @@ public class Window
     var targetWindows = new List<Window>();
     if (Handler == IntPtr.Zero)
     {
-      targetWindows = All().Where(w =>
-      {
-        return w.ProcessName.Value == ProcessName.Value && w.Title.Value.Contains(Title.Value);
-      }).ToList();
+      targetWindows = All().Where(w => w.ProcessName.Value == ProcessName.Value && w.Title.Value.Contains(Title.Value)).ToList();
     }
     else
     {

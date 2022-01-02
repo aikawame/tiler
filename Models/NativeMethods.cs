@@ -39,9 +39,9 @@ public static class NativeMethods
   [StructLayout(LayoutKind.Sequential)]
   public struct Rect
   {
-    public int left;
-    public int top;
-    public int right;
-    public int bottom;
+    public readonly int left;
+    public readonly int top;
+    public readonly int right;
+    public readonly int bottom;
   }
 }
