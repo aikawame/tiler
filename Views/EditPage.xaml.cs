@@ -5,7 +5,7 @@ using System.Windows;
 using Tiler.Models;
 using Window = Tiler.Models.Window;
 
-namespace Tiler
+namespace Tiler.Views
 {
   public partial class EditPage
   {
