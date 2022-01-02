@@ -2,46 +2,47 @@
 using System.Runtime.Serialization;
 using System.Windows;
 
-namespace Tiler.Models
+namespace Tiler.Models;
+
+[DataContract]
+public class Screen
 {
-  [DataContract]
-  public class Screen
+  [DataMember]
+  public int Width { get; set; }
+
+  [DataMember]
+  public int Height { get; set; }
+
+  [DataMember]
+  public List<Window> Windows { get; set; }
+
+  public Screen()
   {
-    [DataMember]
-    public int Width { get; set; }
+    Width   = 0;
+    Height  = 0;
+    Windows = new List<Window>();
+  }
 
-    [DataMember]
-    public int Height { get; set; }
-
-    [DataMember]
-    public List<Window> Windows { get; set; }
-
-    public Screen()
+  public static Screen Active()
+  {
+    var screen = new Screen
     {
-      Width = 0;
-      Height = 0;
-      Windows = new List<Window>();
-    }
+      Width   = (int)SystemParameters.VirtualScreenWidth,
+      Height  = (int)SystemParameters.VirtualScreenHeight,
+      Windows = Window.All()
+    };
 
-    public static Screen Active()
-    {
-      var screen = new Screen();
-      screen.Width = (int)SystemParameters.VirtualScreenWidth;
-      screen.Height = (int)SystemParameters.VirtualScreenHeight;
-      screen.Windows = Window.All();
+    return screen;
+  }
 
-      return screen;
-    }
+  public void Apply()
+  {
+    Windows.ForEach(w => w.Apply());
+  }
 
-    public void Apply()
-    {
-      Windows.ForEach(w => w.Apply());
-    }
-
-    public void UpdateWindow(Window window)
-    {
-      int index = Windows.FindIndex(w => w.ProcessName == window.ProcessName && w.Title == window.Title);
-      Windows[index] = window;
-    }
+  public void UpdateWindow(Window window)
+  {
+    int index = Windows.FindIndex(w => w.ProcessName == window.ProcessName && w.Title == window.Title);
+    Windows[index] = window;
   }
 }

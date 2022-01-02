@@ -1,26 +1,25 @@
 ﻿using System.Windows;
 using Hardcodet.Wpf.TaskbarNotification;
 
-namespace Tiler
+namespace Tiler;
+
+public partial class App
 {
-  public partial class App
+  private TaskbarIcon? _taskbarIcon;
+
+  protected override void OnStartup(StartupEventArgs e)
   {
-    private TaskbarIcon? _taskbarIcon;
+    base.OnStartup(e);
+    var taskbarIcon = FindResource("TaskbarIcon");
+    if (taskbarIcon is null) return;
 
-    protected override void OnStartup(StartupEventArgs e)
-    {
-      base.OnStartup(e);
-      var taskbarIcon = FindResource("TaskbarIcon");
-      if (taskbarIcon is null) return;
+    _taskbarIcon = (TaskbarIcon)taskbarIcon;
+  }
 
-      _taskbarIcon = (TaskbarIcon)taskbarIcon;
-    }
+  protected override void OnExit(ExitEventArgs e)
+  {
+    if (_taskbarIcon is not null) _taskbarIcon.Dispose();
 
-    protected override void OnExit(ExitEventArgs e)
-    {
-      if (_taskbarIcon is not null) _taskbarIcon.Dispose();
-
-      base.OnExit(e);
-    }
+    base.OnExit(e);
   }
 }
