@@ -8,7 +8,7 @@
                   ToolTipText="Tiler"
                   MenuActivation="LeftOrRightClick">
     <tb:TaskbarIcon.ContextMenu>
-      <ContextMenu>
+      <ContextMenu FontWeight="Light">
         <MenuItem Header="{x:Static properties:Resources.Frg_RestoreWindows}" Click="Restore_Click" />
         <Separator />
         <MenuItem Header="{x:Static properties:Resources.Frg_StoreAllWindows}" Click="StoreAll_Click" />
