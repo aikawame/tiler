@@ -18,7 +18,7 @@ public partial class NotificationArea
     settingCollection.UpdateScreen(Screen.Active());
     settingCollection.Save();
 
-    ModernWpf.MessageBox.Show(Properties.Resources.Msg_AllWindowsSaved);
+    ModernWpf.MessageBox.Show(Properties.Resources.Msg_AllWindowsStored);
   }
 
   private void StoreActive_Click(object sender, RoutedEventArgs e)
@@ -27,7 +27,7 @@ public partial class NotificationArea
     settingCollection.GetCurrentScreen().UpdateWindow(Window.Active());
     settingCollection.Save();
 
-    ModernWpf.MessageBox.Show(Properties.Resources.Msg_ActiveWindowSaved);
+    ModernWpf.MessageBox.Show(Properties.Resources.Msg_ActiveWindowStored);
   }
 
   private void Edit_Click(object sender, RoutedEventArgs e)
