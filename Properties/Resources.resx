@@ -48,11 +48,11 @@
     <data name="Frg_Width" xml:space="preserve">
         <value>Width</value>
     </data>
-    <data name="Msg_ActiveWindowSaved" xml:space="preserve">
-        <value>Active window position has been saved.</value>
+    <data name="Msg_ActiveWindowStored" xml:space="preserve">
+        <value>Active window position has been stored.</value>
     </data>
-    <data name="Msg_AllWindowsSaved" xml:space="preserve">
-        <value>All window positions have been saved.</value>
+    <data name="Msg_AllWindowsStored" xml:space="preserve">
+        <value>All window positions have been stored.</value>
     </data>
     <data name="Msg_SettingsSaved" xml:space="preserve">
         <value>Settings have been saved.</value>
