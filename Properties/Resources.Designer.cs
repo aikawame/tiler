@@ -151,20 +151,20 @@ namespace Tiler.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Active window position has been saved..
+        ///   Looks up a localized string similar to Active window position has been stored..
         /// </summary>
-        public static string Msg_ActiveWindowSaved {
+        public static string Msg_ActiveWindowStored {
             get {
-                return ResourceManager.GetString("Msg_ActiveWindowSaved", resourceCulture);
+                return ResourceManager.GetString("Msg_ActiveWindowStored", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All window positions have been saved..
+        ///   Looks up a localized string similar to All window positions have been stored..
         /// </summary>
-        public static string Msg_AllWindowsSaved {
+        public static string Msg_AllWindowsStored {
             get {
-                return ResourceManager.GetString("Msg_AllWindowsSaved", resourceCulture);
+                return ResourceManager.GetString("Msg_AllWindowsStored", resourceCulture);
             }
         }
         

@@ -48,10 +48,10 @@
     <data name="Frg_Width" xml:space="preserve">
         <value>幅</value>
     </data>
-    <data name="Msg_ActiveWindowSaved" xml:space="preserve">
+    <data name="Msg_ActiveWindowStored" xml:space="preserve">
         <value>アクティブなウィンドウ位置を保存しました。</value>
     </data>
-    <data name="Msg_AllWindowsSaved" xml:space="preserve">
+    <data name="Msg_AllWindowsStored" xml:space="preserve">
         <value>全てのウィンドウ位置を保存しました。</value>
     </data>
     <data name="Msg_SettingsSaved" xml:space="preserve">
