@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using PInvoke;
 
 namespace Tiler.Models;
 
@@ -26,7 +27,7 @@ public static class WindowEnumerator
 
   public static Window GetActiveWindow()
   {
-    EnumWindow(NativeMethods.GetActiveWindow(), IntPtr.Zero);
+    EnumWindow(User32.GetActiveWindow(), IntPtr.Zero);
 
     return _windows.First();
   }
@@ -34,7 +35,7 @@ public static class WindowEnumerator
   public static List<Window> GetAllWindows()
   {
     _windows = new List<Window>();
-    NativeMethods.EnumWindows(EnumWindow, IntPtr.Zero);
+    User32.EnumWindows(EnumWindow, IntPtr.Zero);
 
     return _windows.OrderBy(window => window.ProcessName.Value).ToList();
   }
@@ -67,27 +68,28 @@ public static class WindowEnumerator
 
   private static string _GetTitle(IntPtr hWnd)
   {
-    if (NativeMethods.IsWindowVisible(hWnd) == false) return "";
+    if (User32.IsWindowVisible(hWnd) == false) return "";
 
-    int textLength = NativeMethods.GetWindowTextLength(hWnd);
+    int textLength = User32.GetWindowTextLength(hWnd);
     if (textLength == 0) return "";
 
-    var title = new StringBuilder(textLength + 1);
-    NativeMethods.GetWindowText(hWnd, title, title.Capacity);
+    char[] buffer = new char[textLength];
+    int bufferLength = buffer.Length;
+    User32.GetWindowText(hWnd, buffer, bufferLength);
 
-    return title.ToString();
+    return new string(buffer);
   }
 
   private static Process _GetProcess(IntPtr hWnd)
   {
-    NativeMethods.GetWindowThreadProcessId(hWnd, out var processId);
+    User32.GetWindowThreadProcessId(hWnd, out var processId);
 
-    return Process.GetProcessById((int)processId);
+    return Process.GetProcessById(processId);
   }
 
   private static Rect _GetRect(IntPtr hWnd)
   {
-    NativeMethods.GetWindowRect(hWnd, out var win32Rect);
+    User32.GetWindowRect(hWnd, out var win32Rect);
 
     var rect = new Rect
     {
