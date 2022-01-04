@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tiler", "Tiler.csproj", "{D5B79959-BB73-4805-87AE-A9CD883E6510}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tiler", "Tiler\Tiler.csproj", "{D5B79959-BB73-4805-87AE-A9CD883E6510}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
