@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using PInvoke;
 using Reactive.Bindings;
 
 namespace Tiler.Models;
@@ -70,7 +71,7 @@ public class Window
 
     targetWindows.ForEach(w =>
     {
-      NativeMethods.MoveWindow(w.Handler, X.Value, Y.Value, Width.Value, Height.Value, false);
+      User32.MoveWindow(w.Handler, X.Value, Y.Value, Width.Value, Height.Value, false);
     });
   }
 }
