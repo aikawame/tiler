@@ -19,6 +19,9 @@
     <PackageReference Include="ModernWpf.MessageBox">
       <Version>0.5.2</Version>
     </PackageReference>
+    <PackageReference Include="PInvoke.User32">
+      <Version>0.7.104</Version>
+    </PackageReference>
     <PackageReference Include="ReactiveProperty">
       <Version>8.0.0</Version>
     </PackageReference>
