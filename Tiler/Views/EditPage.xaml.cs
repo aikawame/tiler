@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using JetBrains.Annotations;
@@ -28,12 +27,5 @@ public partial class EditPage
     settingCollection.Save();
 
     ModernWpf.MessageBox.Show(Properties.Resources.Msg_SettingsSaved);
-  }
-
-  private void Window_Closing(object sender, CancelEventArgs e)
-  {
-    e.Cancel = true;
-    ShowInTaskbar = false;
-    Hide();
   }
 }
