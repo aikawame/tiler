@@ -1,0 +1,26 @@
+﻿<Page x:Class="Tiler.Views.AboutPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      Title="About" d:DesignHeight="640" d:DesignWidth="640">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="12"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="12"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="12"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="12"/>
+    </Grid.ColumnDefinitions>
+
+    <TextBlock Grid.Row="1" Grid.Column="1">
+      Tiler 0.1.0
+      <LineBreak />
+      Copyright © 2021 Masahiro Aikawa.
+    </TextBlock>
+  </Grid>
+</Page>

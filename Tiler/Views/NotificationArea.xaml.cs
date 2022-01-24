@@ -32,8 +32,8 @@ public partial class NotificationArea
 
   private void Edit_Click(object sender, RoutedEventArgs e)
   {
-    System.Windows.Window editPage = new EditPage();
-    editPage.Show();
+    System.Windows.Window mainView = new MainView();
+    mainView.Show();
   }
   private void Exit_Click(object sender, RoutedEventArgs e)
   {
