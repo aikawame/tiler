@@ -1,0 +1,33 @@
+﻿<Window x:Class="Tiler.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:muxc="http://schemas.modernwpf.com/2019"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        xmlns:properties="clr-namespace:Tiler.Properties"
+        mc:Ignorable="d"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        ui:TitleBar.ExtendViewIntoTitleBar="True"
+        ui:TitleBar.IsBackButtonVisible="True"
+        ui:TitleBar.IsBackEnabled="True"
+        Closing="Window_Closing"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="MainView" Height="960" Width="1280">
+  <muxc:NavigationView
+    Header="{Binding Title}"
+    IsBackButtonVisible="Collapsed"
+    IsSettingsVisible="False"
+    PaneDisplayMode="Left"
+    SelectionChanged="NaviView_SelectionChanged">
+    <muxc:NavigationView.MenuItems>
+      <muxc:NavigationViewItem Content="{x:Static properties:Resources.Frg_EditWindow}" Icon="Pictures" IsSelected="True" Tag="edit" />
+      <muxc:NavigationViewItem Content="{x:Static properties:Resources.Frg_OtherSettings}" Icon="Setting" IsSelected="True" Tag="others" />
+      <muxc:NavigationViewItem Content="{x:Static properties:Resources.Frg_AboutTiler}" Icon="Help" IsSelected="True" Tag="about" />
+    </muxc:NavigationView.MenuItems>
+    <ScrollViewer>
+      <ui:Frame x:Name="ContentFrame" />
+    </ScrollViewer>
+  </muxc:NavigationView>
+</Window>

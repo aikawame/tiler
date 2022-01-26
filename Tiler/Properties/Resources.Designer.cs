@@ -61,11 +61,29 @@ namespace Tiler.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About Tiler.
+        /// </summary>
+        public static string Frg_AboutTiler {
+            get {
+                return ResourceManager.GetString("Frg_AboutTiler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Advanced settings.
         /// </summary>
         public static string Frg_AdvancedSettings {
             get {
                 return ResourceManager.GetString("Frg_AdvancedSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit window.
+        /// </summary>
+        public static string Frg_EditWindow {
+            get {
+                return ResourceManager.GetString("Frg_EditWindow", resourceCulture);
             }
         }
         
@@ -84,6 +102,15 @@ namespace Tiler.Properties {
         public static string Frg_Height {
             get {
                 return ResourceManager.GetString("Frg_Height", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other settings.
+        /// </summary>
+        public static string Frg_OtherSettings {
+            get {
+                return ResourceManager.GetString("Frg_OtherSettings", resourceCulture);
             }
         }
         

@@ -18,14 +18,23 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="Frg_AboutTiler" xml:space="preserve">
+        <value>Tiler について</value>
+    </data>
     <data name="Frg_AdvancedSettings" xml:space="preserve">
         <value>詳細設定</value>
+    </data>
+    <data name="Frg_EditWindow" xml:space="preserve">
+        <value>画面編集</value>
     </data>
     <data name="Frg_Exit" xml:space="preserve">
         <value>終了</value>
     </data>
     <data name="Frg_Height" xml:space="preserve">
         <value>高さ</value>
+    </data>
+    <data name="Frg_OtherSettings" xml:space="preserve">
+        <value>その他の設定</value>
     </data>
     <data name="Frg_ProcessName" xml:space="preserve">
         <value>プロセス名</value>
