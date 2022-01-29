@@ -73,7 +73,7 @@ public static class WindowEnumerator
     int textLength = User32.GetWindowTextLength(hWnd);
     if (textLength == 0) return "";
 
-    char[] buffer = new char[textLength];
+    char[] buffer = new char[textLength + 1];
     int bufferLength = buffer.Length;
     User32.GetWindowText(hWnd, buffer, bufferLength);
 
