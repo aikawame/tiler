@@ -67,6 +67,11 @@ public class SettingCollection
     return screens.First();
   }
 
+  public List<Screen> GetScreens()
+  {
+    return Screens;
+  }
+
   public void Save()
   {
     var directory = Path.GetDirectoryName(GetFileName()) ?? "";
