@@ -1,29 +1,26 @@
-﻿using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Windows;
-using JetBrains.Annotations;
 using Tiler.Models;
-using Window = Tiler.Models.Window;
 
 namespace Tiler.Views;
 
 public partial class EditPage
 {
-  [UsedImplicitly]
-  public ObservableCollection<Window> Windows { get; }
+  public List<Screen> Screens { get; }
 
   public EditPage()
   {
     InitializeComponent();
     DataContext = this;
 
-    Windows = new ObservableCollection<Window>(SettingCollection.Load().GetCurrentScreen().Windows);
+    Screens = SettingCollection.Load().GetScreens();
+    TabControl.ItemsSource = Screens;
   }
 
   private void Save_Click(object sender, RoutedEventArgs e)
   {
     SettingCollection settingCollection = SettingCollection.Load();
-    settingCollection.GetCurrentScreen().Windows = Windows.ToList();
+    settingCollection.Screens = Screens;
     settingCollection.Save();
 
     ModernWpf.MessageBox.Show(Properties.Resources.Msg_SettingsSaved);

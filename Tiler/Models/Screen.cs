@@ -14,21 +14,29 @@ public class Screen
   public int Height { get; set; }
 
   [DataMember]
+  public string Label { get; set; }
+
+  [DataMember]
   public List<Window> Windows { get; set; }
 
   public Screen()
   {
     Width   = 0;
     Height  = 0;
+    Label   = "";
     Windows = new List<Window>();
   }
 
   public static Screen Active()
   {
+    var screenWidth = (int)SystemParameters.VirtualScreenWidth;
+    var screenHeight = (int)SystemParameters.VirtualScreenHeight;
+
     var screen = new Screen
     {
-      Width   = (int)SystemParameters.VirtualScreenWidth,
-      Height  = (int)SystemParameters.VirtualScreenHeight,
+      Width   = screenWidth,
+      Height  = screenHeight,
+      Label   = $"{screenWidth} x {screenHeight}",
       Windows = Window.All()
     };
 

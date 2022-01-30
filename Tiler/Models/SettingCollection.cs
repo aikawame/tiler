@@ -67,6 +67,25 @@ public class SettingCollection
     return screens.First();
   }
 
+  public List<Screen> GetScreens()
+  {
+    var screenWidth = (int)SystemParameters.VirtualScreenWidth;
+    var screenHeight = (int)SystemParameters.VirtualScreenHeight;
+
+    var screens = new List<Screen>();
+    foreach (var s in Screens)
+    {
+      if (s.Width == screenWidth && s.Height == screenHeight)
+      {
+        screens.Insert(0, s);
+        continue;
+      }
+      screens.Add(s);
+    }
+
+    return screens;
+  }
+
   public void Save()
   {
     var directory = Path.GetDirectoryName(GetFileName()) ?? "";

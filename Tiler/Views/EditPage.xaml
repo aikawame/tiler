@@ -8,7 +8,6 @@
         Title="Edit" d:DesignHeight="640" d:DesignWidth="640">
     <Grid>
       <Grid.RowDefinitions>
-        <RowDefinition Height="12"/>
         <RowDefinition Height="*"/>
         <RowDefinition Height="12"/>
         <RowDefinition Height="32"/>
@@ -19,52 +18,80 @@
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="12"/>
       </Grid.ColumnDefinitions>
-      <DataGrid Grid.Row="1" Grid.Column="1"
-                ItemsSource="{Binding Windows}" AutoGenerateColumns="False" CanUserAddRows="False">
-        <DataGrid.Columns>
-          <DataGridTextColumn Header="{x:Static properties:Resources.Frg_ProcessName}"
-                              Binding="{Binding ProcessName.Value}"
-                              Width="2*"
-                              IsReadOnly="True" />
-          <DataGridTextColumn Header="{x:Static properties:Resources.Frg_Title}" Binding="{Binding Title.Value}" Width="4*" />
-          <DataGridTextColumn Header="X" Binding="{Binding X.Value}" Width="*">
-            <DataGridTextColumn.ElementStyle>
-              <Style TargetType="TextBlock">
-                <Setter Property="HorizontalAlignment" Value="Right" />
-                <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="Padding" Value="0,0,12,0"></Setter>
-              </Style>
-            </DataGridTextColumn.ElementStyle>
-          </DataGridTextColumn>
-          <DataGridTextColumn Header="Y" Binding="{Binding Y.Value}" Width="*">
-            <DataGridTextColumn.ElementStyle>
-              <Style TargetType="TextBlock">
-                <Setter Property="HorizontalAlignment" Value="Right" />
-                <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="Padding" Value="0,0,12,0"></Setter>
-              </Style>
-            </DataGridTextColumn.ElementStyle>
-          </DataGridTextColumn>
-          <DataGridTextColumn Header="{x:Static properties:Resources.Frg_Width}" Binding="{Binding Width.Value}" Width="*">
-            <DataGridTextColumn.ElementStyle>
-            <Style TargetType="TextBlock">
-              <Setter Property="HorizontalAlignment" Value="Right" />
-              <Setter Property="VerticalAlignment" Value="Center" />
-              <Setter Property="Padding" Value="0,0,12,0"></Setter>
-            </Style>
-            </DataGridTextColumn.ElementStyle>
-          </DataGridTextColumn>
-          <DataGridTextColumn Header="{x:Static properties:Resources.Frg_Height}" Binding="{Binding Height.Value}" Width="*">
-            <DataGridTextColumn.ElementStyle>
-              <Style TargetType="TextBlock">
-                <Setter Property="HorizontalAlignment" Value="Right" />
-                <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="Padding" Value="0,0,12,0"></Setter>
-              </Style>
-            </DataGridTextColumn.ElementStyle>
-          </DataGridTextColumn>
-        </DataGrid.Columns>
-      </DataGrid>
-      <Button Grid.Row="3" Grid.Column="1" Content="{x:Static properties:Resources.Frg_Save}" Width="100" HorizontalAlignment="Right" Click="Save_Click"/>
+      <TabControl Grid.Row="0"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="3"
+                  x:Name="TabControl"
+                  Style="{StaticResource TabControlPivotStyle}">
+        <TabControl.ItemTemplate>
+          <DataTemplate>
+            <TextBlock Text="{Binding Label}" />
+          </DataTemplate>
+        </TabControl.ItemTemplate>
+        <TabControl.ContentTemplate>
+          <DataTemplate>
+          <DataGrid Margin="0,12,0,0"
+                    ItemsSource="{Binding Windows}"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False">
+            <DataGrid.Columns>
+              <DataGridTextColumn Header="{x:Static properties:Resources.Frg_ProcessName}"
+                                  Binding="{Binding ProcessName.Value}"
+                                  Width="2*"
+                                  IsReadOnly="True" />
+              <DataGridTextColumn Header="{x:Static properties:Resources.Frg_Title}"
+                                  Binding="{Binding Title.Value}"
+                                  Width="4*" />
+              <DataGridTextColumn Header="X" Binding="{Binding X.Value}" Width="*">
+                <DataGridTextColumn.ElementStyle>
+                  <Style TargetType="TextBlock">
+                    <Setter Property="HorizontalAlignment" Value="Right" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Padding" Value="0,0,12,0"></Setter>
+                  </Style>
+                </DataGridTextColumn.ElementStyle>
+              </DataGridTextColumn>
+              <DataGridTextColumn Header="Y" Binding="{Binding Y.Value}" Width="*">
+                <DataGridTextColumn.ElementStyle>
+                  <Style TargetType="TextBlock">
+                    <Setter Property="HorizontalAlignment" Value="Right" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Padding" Value="0,0,12,0"></Setter>
+                  </Style>
+                </DataGridTextColumn.ElementStyle>
+              </DataGridTextColumn>
+              <DataGridTextColumn Header="{x:Static properties:Resources.Frg_Width}"
+                                  Binding="{Binding Width.Value}"
+                                  Width="*">
+                <DataGridTextColumn.ElementStyle>
+                  <Style TargetType="TextBlock">
+                    <Setter Property="HorizontalAlignment" Value="Right" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Padding" Value="0,0,12,0"></Setter>
+                  </Style>
+                </DataGridTextColumn.ElementStyle>
+              </DataGridTextColumn>
+              <DataGridTextColumn Header="{x:Static properties:Resources.Frg_Height}"
+                                  Binding="{Binding Height.Value}"
+                                  Width="*">
+                <DataGridTextColumn.ElementStyle>
+                  <Style TargetType="TextBlock">
+                    <Setter Property="HorizontalAlignment" Value="Right" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Padding" Value="0,0,12,0"></Setter>
+                  </Style>
+                </DataGridTextColumn.ElementStyle>
+              </DataGridTextColumn>
+            </DataGrid.Columns>
+          </DataGrid>
+          </DataTemplate>
+        </TabControl.ContentTemplate>
+      </TabControl>
+      <Button Grid.Row="2"
+              Grid.Column="1"
+              Content="{x:Static properties:Resources.Frg_Save}"
+              Width="100"
+              HorizontalAlignment="Right"
+              Click="Save_Click"/>
     </Grid>
 </Page>
