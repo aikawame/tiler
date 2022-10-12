@@ -27,6 +27,7 @@ public static class WindowEnumerator
 
   public static Window GetActiveWindow()
   {
+    // FIXME: Can't get window from notification area.
     EnumWindow(User32.GetActiveWindow(), IntPtr.Zero);
 
     return _windows.First();

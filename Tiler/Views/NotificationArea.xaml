@@ -12,7 +12,7 @@
         <MenuItem Header="{x:Static properties:Resources.Frg_RestoreWindows}" Click="Restore_Click" />
         <Separator />
         <MenuItem Header="{x:Static properties:Resources.Frg_StoreAllWindows}" Click="StoreAll_Click" />
-        <MenuItem Header="{x:Static properties:Resources.Frg_StoreActiveWindow}" Click="StoreActive_Click" />
+        <!-- <MenuItem Header="{x:Static properties:Resources.Frg_StoreActiveWindow}" Click="StoreActive_Click" /> -->
         <Separator />
         <MenuItem Header="{x:Static properties:Resources.Frg_AdvancedSettings}" Click="Edit_Click" />
         <MenuItem Header="{x:Static properties:Resources.Frg_Exit}" Click="Exit_Click" />
