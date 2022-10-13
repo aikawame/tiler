@@ -1,8 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tiler", "Tiler\Tiler.csproj", "{D5B79959-BB73-4805-87AE-A9CD883E6510}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tiler", "Tiler\Tiler.csproj", "{D5B79959-BB73-4805-87AE-A9CD883E6510}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tiler.Tests", "Tiler.Tests\Tiler.Tests.csproj", "{2A9A038A-EE29-4EF7-9834-F84667188947}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tiler.Tests", "Tiler.Tests\Tiler.Tests.csproj", "{2A9A038A-EE29-4EF7-9834-F84667188947}"
+EndProject
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Tiler.Package", "Tiler.Package\Tiler.Package.wapproj", "{934E7B08-D2F9-4E6E-8B6A-1154B399317C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

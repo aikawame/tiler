@@ -26,6 +26,7 @@
     <PackageReference Include="ReactiveProperty">
       <Version>8.0.0</Version>
     </PackageReference>
+    <ProjectReference Include="..\Tiler.Package\Tiler.Package.wapproj" />
     <Resource Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
